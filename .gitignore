@@ -127,3 +127,17 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+bdjvenv/lib64
+bdjvenv/pyvenv.cfg
+bdjvenv/bin/activate
+bdjvenv/bin/activate.csh
+bdjvenv/bin/activate.fish
+bdjvenv/bin/Activate.ps1
+bdjvenv/bin/django-admin
+bdjvenv/bin/pip
+bdjvenv/bin/pip3
+bdjvenv/bin/pip3.10
+bdjvenv/bin/python
+bdjvenv/bin/python3
+bdjvenv/bin/python3.10
+bdjvenv/bin/sqlformat
