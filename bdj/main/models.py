@@ -1,7 +1,8 @@
 from django.db import models
 
 
-class Driver(models.Model):
+class DriverProfile(models.Model):
+    driver = models.OneToOneField("auth.User", on_delete=models.CASCADE)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     work_number = models.SmallIntegerField()
