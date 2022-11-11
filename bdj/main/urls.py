@@ -1,7 +1,9 @@
 from django.urls import path, include
-from .views import homepage
+from .views import homepage, workdays, workdays_details
 
 app_name = "main"
 urlpatterns = [
-    path('', homepage, name="homepage"),
+    path("", homepage, name="homepage"),
+    path("workdays/", workdays, name="workdays"),
+    path("workdays/<int:id>", workdays_details, name="workdays_details"),
 ]
