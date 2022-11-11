@@ -25,4 +25,4 @@ class WorkDay(models.Model):
         return self.end_mileage - self.start_mileage
 
     def __str__(self) -> str:
-        return f"{self.work_start}"
+        return f"{self.work_hours}"
