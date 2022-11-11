@@ -3,6 +3,33 @@
 
 {% block content %}
 
-<h1 class="text-center">WorkDays Details</h1>
+<h1 class="text-center">Szczegóły dnia pracy</h1>
+
+<table class="table text-center">
+    <thead>
+      <tr>
+        <th scope="col">Data</th>
+        <th scope="col">Godzina rozpoczęcia</th>
+        <th scope="col">Godzina zakończenia</th>
+        <th scope="col">Godziny pracy</th>
+        <th scope="col">Numer autobusu</th>
+        <th scope="col">Licznik początkowy</th>
+        <th scope="col">Licznik końcowy</th>
+        <th scope="col">Ilość kilometrów</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{ workdays_details.work_date }}</th>
+        <td>{{ workdays_details.work_start}}</td>
+        <td>{{ workdays_details.work_end }}</td>
+        <td>{{ workdays_details.work_hours }}</td>
+        <td>{{ workdays_details.bus_number }}</td>
+        <td>{{ workdays_details.start_mileage }}</td>
+        <td>{{ workdays_details.end_mileage }}</td>
+        <td>{{ workdays_details.total_mileage }}</td>
+      </tr>
+    </tbody>
+  </table>
 
 {% endblock%}

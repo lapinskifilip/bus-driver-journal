@@ -8,14 +8,11 @@
 <table class="table">
     <thead>
       <tr>
-        <th scope="col">Date</th>
-        <th scope="col">Work Start</th>
-        <th scope="col">Work End</th>
-        <th scope="col">Work Hours</th>
-        <th scope="col">Bus Number</th>
-        <th scope="col">Start Mileage</th>
-        <th scope="col">End Mileage</th>
-        <th scope="col">Total Mileage</th>
+        <th scope="col">Data</th>
+        <th scope="col">Godzina rozpoczęcia</th>
+        <th scope="col">Godzina zakończenia</th>
+        <th scope="col">Godziny pracy</th>
+        <th scope="col">Więcej</th>
       </tr>
     </thead>
     <tbody>
@@ -25,10 +22,7 @@
         <td>{{ workday.work_start}}</td>
         <td>{{ workday.work_end }}</td>
         <td>{{ workday.work_hours }}</td>
-        <td>{{ workday.bus_number }}</td>
-        <td>{{ workday.start_mileage }}</td>
-        <td>{{ workday.end_mileage }}</td>
-        <td>{{ workday.total_mileage }}</td>
+        <td><a href="{% url 'main:workdays_details' workday.id %}">Więcej...</a></td>
       </tr>
       {% endfor %}
     </tbody>

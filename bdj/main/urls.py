@@ -5,5 +5,5 @@ app_name = "main"
 urlpatterns = [
     path("", homepage, name="homepage"),
     path("workdays/", workdays, name="workdays"),
-    path("workdays/<int:id>", workdays_details, name="workdays_details"),
+    path("workdays/<int:workdays_id>", workdays_details, name="workdays_details"),
 ]
