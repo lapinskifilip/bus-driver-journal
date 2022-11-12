@@ -6,6 +6,18 @@ def homepage(request):
     return render(request, "main/index.html", context={})
 
 
+def weekday_schedules(request):
+    return render(request, "main/schedules/weekday.html", context={})
+
+
+def saturday_schedules(request):
+    return render(request, "main/schedules/saturday.html", context={})
+
+
+def sunday_schedules(request):
+    return render(request, "main/schedules/sunday.html", context={})
+
+
 def workdays(request):
     workdays = WorkDay.objects.all()
     context = {"workdays": workdays}

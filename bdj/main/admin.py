@@ -1,11 +1,10 @@
 from django.contrib import admin
-from .models import DriverProfile, WorkDay
+from .models import DriverProfile, WorkDay, Schedule
 
 
 @admin.register(DriverProfile)
 class DriverProfileAdmin(admin.ModelAdmin):
     list_display = [
-        "driver",
         "work_number",
     ]
 
@@ -22,3 +21,8 @@ class WorkDayAdmin(admin.ModelAdmin):
         "end_mileage",
         "total_mileage",
     ]
+
+
+@admin.register(Schedule)
+class ScheduleAdmin(admin.ModelAdmin):
+    pass

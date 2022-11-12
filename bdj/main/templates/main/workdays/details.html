@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load timedelta_filter %}
 
 {% block content %}
 
@@ -8,10 +9,10 @@
 <table class="table text-center">
     <thead>
       <tr>
-        <th scope="col">Data</th>
-        <th scope="col">Godzina rozpoczęcia</th>
-        <th scope="col">Godzina zakończenia</th>
-        <th scope="col">Godziny pracy</th>
+        <th scope="col">#</th>
+        <th scope="col">Rozpoczęcie pracy</th>
+        <th scope="col">Zakończenie pracy</th>
+        <th scope="col">Czas pracy</th>
         <th scope="col">Numer autobusu</th>
         <th scope="col">Licznik początkowy</th>
         <th scope="col">Licznik końcowy</th>
@@ -20,10 +21,10 @@
     </thead>
     <tbody>
       <tr>
-        <th scope="row">{{ workdays_details.work_date }}</th>
-        <td>{{ workdays_details.work_start}}</td>
-        <td>{{ workdays_details.work_end }}</td>
-        <td>{{ workdays_details.work_hours }}</td>
+        <th scope="row">{{ workdays_details.id }}</th>
+        <td>{{ workdays_details.work_start|date:"d.m.Y H:m" }}</td>
+        <td>{{ workdays_details.work_end|date:"d.m.Y H:m" }}</td>
+        <td>{{ workdays_details.work_hours|timedelta:"{hours_total}:{minutes2}" }}</td>
         <td>{{ workdays_details.bus_number }}</td>
         <td>{{ workdays_details.start_mileage }}</td>
         <td>{{ workdays_details.end_mileage }}</td>
@@ -31,5 +32,8 @@
       </tr>
     </tbody>
   </table>
+  <p class="d-flex justify-content-end pe-5"><a href="/" class="text-decoration-none">Wróć do Strony głównej</a></p>
+
+
 
 {% endblock%}

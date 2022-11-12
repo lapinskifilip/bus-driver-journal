@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load timedelta_filter %}
 
 {% block content %}
 
@@ -8,24 +9,24 @@
 <table class="table">
     <thead>
       <tr>
-        <th scope="col">Data</th>
-        <th scope="col">Godzina rozpoczęcia</th>
-        <th scope="col">Godzina zakończenia</th>
-        <th scope="col">Godziny pracy</th>
+        <th scope="col">#</th>
+        <th scope="col">Rozpoczęcie pracy</th>
+        <th scope="col">Zakończenie pracy</th>
+        <th scope="col">Ilość godzin</th>
         <th scope="col">Więcej</th>
       </tr>
     </thead>
     <tbody>
         {% for workday in workdays %}
       <tr>
-        <th scope="row">{{ workday.work_date }}</th>
-        <td>{{ workday.work_start}}</td>
-        <td>{{ workday.work_end }}</td>
-        <td>{{ workday.work_hours }}</td>
+        <th scope="row">{{ workday.id }}</th>
+        <td>{{ workday.work_start|date:"d.m.Y H:m" }}</td>
+        <td>{{ workday.work_end|date:"d.m.Y H:m" }}</td>
+        <td>{{ workday.work_hours|timedelta:"{hours_total}:{minutes2}" }}</td>
         <td><a href="{% url 'main:workdays_details' workday.id %}">Więcej...</a></td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
-
+  <p class="d-flex justify-content-end pe-5"><a href="/" class="text-decoration-none">Wróć do Strony głównej</a></p>
 {% endblock%}

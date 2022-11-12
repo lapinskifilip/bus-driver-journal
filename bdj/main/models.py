@@ -26,3 +26,7 @@ class WorkDay(models.Model):
 
     def __str__(self) -> str:
         return f"{self.work_hours}"
+
+
+class Schedule(models.Model):
+    title = models.CharField(max_length=3)
