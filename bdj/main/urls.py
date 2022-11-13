@@ -4,7 +4,7 @@ from .views import (
     weekday_schedules,
     saturday_schedules,
     sunday_schedules,
-    workdays,
+    workdays_list,
     workdays_details,
 )
 
@@ -14,6 +14,6 @@ urlpatterns = [
     path("schedules/weekday/", weekday_schedules, name="weekday_schedules"),
     path("schedules/saturday/", saturday_schedules, name="saturday_schedules"),
     path("schedules/sunday/", sunday_schedules, name="sunday_schedules"),
-    path("workdays/", workdays, name="workdays"),
+    path("workdays/", workdays_list, name="workdays_list"),
     path("workdays/<int:workdays_id>", workdays_details, name="workdays_details"),
 ]

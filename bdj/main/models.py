@@ -16,6 +16,10 @@ class WorkDay(models.Model):
     start_mileage = models.IntegerField(default=0)
     end_mileage = models.IntegerField(default=0)
 
+    author = models.ForeignKey(
+        "auth.User", on_delete=models.CASCADE, related_name="workdays"
+    )
+
     @property
     def work_hours(self):
         return self.work_end - self.work_start

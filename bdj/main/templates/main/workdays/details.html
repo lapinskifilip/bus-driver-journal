@@ -5,11 +5,9 @@
 {% block content %}
 
 <h1 class="text-center">Szczegóły dnia pracy</h1>
-
 <table class="table text-center">
     <thead>
       <tr>
-        <th scope="col">#</th>
         <th scope="col">Rozpoczęcie pracy</th>
         <th scope="col">Zakończenie pracy</th>
         <th scope="col">Czas pracy</th>
@@ -21,7 +19,6 @@
     </thead>
     <tbody>
       <tr>
-        <th scope="row">{{ workdays_details.id }}</th>
         <td>{{ workdays_details.work_start|date:"d.m.Y H:m" }}</td>
         <td>{{ workdays_details.work_end|date:"d.m.Y H:m" }}</td>
         <td>{{ workdays_details.work_hours|timedelta:"{hours_total}:{minutes2}" }}</td>
@@ -36,4 +33,4 @@
 
 
 
-{% endblock%}
+{% endblock %}

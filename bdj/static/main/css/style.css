@@ -1,0 +1,10 @@
+.bus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.homepage_bus_img {
+    max-width: 50%;
+}
