@@ -52,13 +52,21 @@ def workday_add(request):
             workday.author = request.user
             workday.save()
             messages.success(request, "Pomyślnie dodano nowy dzień pracy")
-            return redirect("/")
+            return redirect("/workdays/")
 
     context = {'form': form}
     return render(request, "main/workdays/add_workday.html", context)
 
 def workday_edit(request, workdays_id):
     workday = WorkDay.objects.get(id=workdays_id)
+
+    if not workday.author.id == request.user.id:
+        messages.error(
+            request,
+            "Nie można edytować dnia innego kierowcy. Zostałeś przekierowany na stronę główną.",
+        )
+        return redirect("/workdays/")
+
     form = WorkDayForm(instance=workday)
 
     if request.method == "POST":
@@ -68,17 +76,28 @@ def workday_edit(request, workdays_id):
             workday.author = request.user
             workday.save()
             messages.success(request, "Pomyślnie zmodyfikowano dzień pracy")
-            return redirect("/")
+            return redirect("/workdays/")
 
     context = {'form': form}
     return render(request, "main/workdays/add_workday.html", context)
 
 def workday_delete(request, workdays_id):
+    
+
     workday = WorkDay.objects.get(id=workdays_id)
+
+    if not workday.author.id == request.user.id:
+        messages.error(
+            request,
+            "Nie można usunąć dnia innego kierowcy. Zostałeś przekierowany na stronę główną.",
+        )
+        return redirect("/")
+
+
     if request.method == "POST":
         workday.delete()
         messages.success(request, "Pomyślnie usunięto dzień pracy")
-        return redirect("/")
+        return redirect("/workdays/")
     context = {'workday': workday}
     return render(request, "main/workdays/delete_workday.html", context)
 

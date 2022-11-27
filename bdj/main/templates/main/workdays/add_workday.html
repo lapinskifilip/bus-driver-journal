@@ -8,6 +8,7 @@
     <div class="d-flex flex-column bd-highlight mb-3 justify-content-center align-items-center">
         <form method="POST">
                 {% csrf_token %}
+                {{ form.errors }}
                 <div class="form-group">
                     <label for="formGroupExampleInput">Rozpoczęcie pracy</label>
                     {{ form.work_start }}
@@ -28,7 +29,9 @@
                     <label for="formGroupExampleInput2">Licznik końcowy</label>
                     {{ form.end_mileage }}
                 </div>
-            <button type="submit" class="btn btn-primary m-4">Dodaj</button>
+                <div class="col text-center">
+                    <button type="submit" class="btn btn-primary m-4">Zapisz</button>
+                </div>
         </form>
     </div>
 </div>

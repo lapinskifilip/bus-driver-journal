@@ -3,13 +3,18 @@
 
 {% block content %}
 <div class="container-fluid align-items-center justify-content-center">
-   <p>Czy jesteś pewien, że chcesz usunąć wybrany dzień pracy?</p>
+   <div class="col text-center mt-5">
+      <p>Czy jesteś pewien, że chcesz usunąć wybrany dzień pracy?</p>
 
-   <form method="POST">
-        {% csrf_token %}
-        <input type="submit" name="Tak" value="Tak">
-        <a href="/">Nie</a>
+      <form method="POST">
+         {% csrf_token %}
 
-   </form>
+         <div class="col-md-12 text-center mb-5">
+            <button type="submit" class="btn btn-primary">Tak</button>
+            <a href="/">Nie</a>
+        </div>
+
+      </form>
+   </div>
 </div>
 {% endblock %}
