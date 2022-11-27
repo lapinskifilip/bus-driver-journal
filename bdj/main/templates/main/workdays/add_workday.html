@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <form method="POST">
+            {% csrf_token %}
+            <label for="work_start">Rozpoczęcie pracy: </label>
+            {{ form.work_start }}
+
+            <label for="work_start">Zakończenie pracy: </label>
+            {{ form.work_end }}
+
+            <label for="bus_number">Numer autobusu: </label>
+            {{ form.bus_number }}
+            
+            <label for="bus_number">Licznik początkowy: </label>
+            {{ form.start_mileage }}
+            
+            <label for="bus_number">Licznik końcowy: </label>
+            {{ form.end_mileage }}
+        <input type="submit" name="Submit">
+    </form>
+{% endblock %}

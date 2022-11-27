@@ -6,6 +6,7 @@ from .views import (
     sunday_schedules,
     workdays_list,
     workdays_details,
+    workday_add,
 )
 
 app_name = "main"
@@ -16,4 +17,5 @@ urlpatterns = [
     path("schedules/sunday/", sunday_schedules, name="sunday_schedules"),
     path("workdays/", workdays_list, name="workdays_list"),
     path("workdays/<int:workdays_id>", workdays_details, name="workdays_details"),
+    path("workdays/add/", workday_add, name="workday_add")
 ]

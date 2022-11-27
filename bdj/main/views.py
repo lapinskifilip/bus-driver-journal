@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import WorkDay
+from .forms import WorkDayForm
 
 
 def homepage(request):
@@ -37,3 +38,19 @@ def workdays_details(request, workdays_id):
         return redirect("/")
 
     return render(request, "main/workdays/details.html", context)
+
+
+def workday_add(request):
+
+    form = WorkDayForm()
+    if request.method == "POST":
+        form = WorkDayForm(request.POST)
+        if form.is_valid():
+            workday = form.save(commit=False)
+            workday.author = request.user
+            workday.save()
+            messages.success(request, "New workday added")
+            return redirect("/")
+
+    context = {'form': form}
+    return render(request, "main/workdays/add_workday.html", context)
