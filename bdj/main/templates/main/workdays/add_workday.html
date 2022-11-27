@@ -2,22 +2,34 @@
 {% load static %}
 
 {% block content %}
-    <form method="POST">
-            {% csrf_token %}
-            <label for="work_start">Rozpoczęcie pracy: </label>
-            {{ form.work_start }}
+<h1 class="text-center">Bus Driver Journal</h1>
 
-            <label for="work_start">Zakończenie pracy: </label>
-            {{ form.work_end }}
-
-            <label for="bus_number">Numer autobusu: </label>
-            {{ form.bus_number }}
-            
-            <label for="bus_number">Licznik początkowy: </label>
-            {{ form.start_mileage }}
-            
-            <label for="bus_number">Licznik końcowy: </label>
-            {{ form.end_mileage }}
-        <input type="submit" name="Submit">
-    </form>
+<div class="container-fluid">
+    <div class="d-flex flex-column bd-highlight mb-3 justify-content-center align-items-center">
+        <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Rozpoczęcie pracy</label>
+                    {{ form.work_start }}
+                  </div>
+                  <div class="form-group">
+                    <label for="formGroupExampleInput2">Zakończenie pracy</label>
+                    {{ form.work_end }}
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Numer autobusu</label>
+                    {{ form.bus_number }}
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Licznik początkowy</label>
+                    {{ form.start_mileage }}
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Licznik końcowy</label>
+                    {{ form.end_mileage }}
+                </div>
+            <button type="submit" class="btn btn-primary m-4">Dodaj</button>
+        </form>
+    </div>
+</div>
 {% endblock %}

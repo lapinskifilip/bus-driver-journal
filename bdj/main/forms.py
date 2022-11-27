@@ -1,16 +1,8 @@
-from django.forms import ModelForm
+
 from django import forms
 from .models import WorkDay
 
-class WorkDayForm(ModelForm):
-
-    work_start = forms.DateTimeField(input_formats=['%d.%m.%Y %H:%M'],
-        widget = forms.DateTimeInput(
-            format ='%d.%m.%Y %H:%M'))
-    work_end = forms.DateTimeField(input_formats=['%d.%m.%Y %H:%M'],
-        widget = forms.DateTimeInput(
-            format ='%d.%m.%Y %H:%M'))
-
+class WorkDayForm(forms.ModelForm):
     class Meta:
         model = WorkDay
         fields = [
@@ -20,4 +12,13 @@ class WorkDayForm(ModelForm):
             'start_mileage',
             'end_mileage',
         ]
+
+        widgets = {
+            'work_start': forms.DateTimeInput(format ='%d.%m.%Y %H:%M', attrs={'class': 'form-control'}),
+            'work_end': forms.DateTimeInput(format ='%d.%m.%Y %H:%M', attrs={'class': 'form-control'}),
+            'bus_number': forms.NumberInput(attrs={'class': 'form-control'}),
+            'start_mileage': forms.NumberInput(attrs={'class': 'form-control'}),
+            'end_mileage': forms.NumberInput(attrs={'class': 'form-control'}),
+
+        }
         

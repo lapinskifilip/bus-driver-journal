@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid align-items-center justify-content-center">
+   <p>Czy jesteś pewien, że chcesz usunąć wybrany dzień pracy?</p>
+
+   <form method="POST">
+        {% csrf_token %}
+        <input type="submit" name="Tak" value="Tak">
+        <a href="/">Nie</a>
+
+   </form>
+</div>
+{% endblock %}

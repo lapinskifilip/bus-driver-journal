@@ -19,6 +19,8 @@ def saturday_schedules(request):
 def sunday_schedules(request):
     return render(request, "main/schedules/sunday.html", context={})
 
+def contact(request):
+    return render(request, "main/contact.html", context={})
 
 def workdays_list(request):
     workdays_by_author = WorkDay.objects.filter(author=request.user)
@@ -49,8 +51,35 @@ def workday_add(request):
             workday = form.save(commit=False)
             workday.author = request.user
             workday.save()
-            messages.success(request, "New workday added")
+            messages.success(request, "Pomyślnie dodano nowy dzień pracy")
             return redirect("/")
 
     context = {'form': form}
     return render(request, "main/workdays/add_workday.html", context)
+
+def workday_edit(request, workdays_id):
+    workday = WorkDay.objects.get(id=workdays_id)
+    form = WorkDayForm(instance=workday)
+
+    if request.method == "POST":
+        form = WorkDayForm(request.POST, instance=workday)
+        if form.is_valid():
+            workday = form.save(commit=False)
+            workday.author = request.user
+            workday.save()
+            messages.success(request, "Pomyślnie zmodyfikowano dzień pracy")
+            return redirect("/")
+
+    context = {'form': form}
+    return render(request, "main/workdays/add_workday.html", context)
+
+def workday_delete(request, workdays_id):
+    workday = WorkDay.objects.get(id=workdays_id)
+    if request.method == "POST":
+        workday.delete()
+        messages.success(request, "Pomyślnie usunięto dzień pracy")
+        return redirect("/")
+    context = {'workday': workday}
+    return render(request, "main/workdays/delete_workday.html", context)
+
+    
