@@ -10,7 +10,7 @@ class WorkDayForm(forms.ModelForm):
         fields = [
             'work_start',
             'work_end',
-            'bus_number',
+            'bus',
             'start_mileage',
             'end_mileage',
         ]
@@ -18,7 +18,7 @@ class WorkDayForm(forms.ModelForm):
         widgets = {
             'work_start': forms.DateTimeInput(attrs={'class': 'form-control', 'type': 'datetime-local'}),
             'work_end': forms.DateTimeInput(attrs={'class': 'form-control', 'type': 'datetime-local'}),
-            'bus_number': forms.NumberInput(attrs={'class': 'form-control'}),
+            'bus': forms.Select(attrs={'class': 'form-select'}),
             'start_mileage': forms.NumberInput(attrs={'class': 'form-control'}),
             'end_mileage': forms.NumberInput(attrs={'class': 'form-control'}),
 
@@ -32,6 +32,8 @@ class WorkDayForm(forms.ModelForm):
         start_mileage = self.cleaned_data['start_mileage']
         end_mileage = self.cleaned_data['end_mileage']
 
+
+        
         if work_start > work_end:
             self._errors['Rozpoczęcie pracy'] = self.error_class([
                 'Rozpoczęcie pracy nie może być po jego zakończeniu.'])

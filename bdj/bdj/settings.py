@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "timedeltatemplatefilter",
+
+    "django_extensions",
+    
     "main.apps.MainConfig",
 ]
 

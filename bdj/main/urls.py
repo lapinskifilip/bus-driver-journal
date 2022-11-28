@@ -10,6 +10,7 @@ from .views import (
     workday_edit,
     workday_delete,
     workday_add,
+    bus_details,
 )
 
 app_name = "main"
@@ -23,5 +24,6 @@ urlpatterns = [
     path("workdays/<int:workdays_id>", workdays_details, name="workdays_details"),
     path("workdays/<int:workdays_id>/edit", workday_edit, name="workday_edit"),
     path("workdays/<int:workdays_id>/delete", workday_delete, name="workday_delete"),
-    path("workdays/add/", workday_add, name="workday_add")
+    path("workdays/add/", workday_add, name="workday_add"),
+    path("bus/<int:bus_id>", bus_details, name="bus_details")
 ]

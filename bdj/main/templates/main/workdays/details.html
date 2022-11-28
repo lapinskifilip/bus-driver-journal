@@ -22,7 +22,7 @@
         <td>{{ workdays_details.work_start|date:"d.m.Y H:m" }}</td>
         <td>{{ workdays_details.work_end|date:"d.m.Y H:m" }}</td>
         <td>{{ workdays_details.work_hours|timedelta:"{hours_total}:{minutes2}" }}</td>
-        <td>{{ workdays_details.bus_number }}</td>
+        <td>{{ workdays_details.bus.number }}</td>
         <td>{{ workdays_details.start_mileage }}</td>
         <td>{{ workdays_details.end_mileage }}</td>
         <td>{{ workdays_details.total_mileage }}</td>

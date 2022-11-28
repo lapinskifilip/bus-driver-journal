@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="d-flex align-items-center justify-content-center mt-5">
+  <div class="card text-center" style="width: 18rem;">
+    <div class="card-header">
+        {{ bus.registration_number }}
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Marka: {{ bus.name }}</li>
+      <li class="list-group-item">Nr taborowy: {{ bus.number }}</li>
+      <li class="list-group-item">Nr rejestracyjny: {{ bus.registration_number }}</li>
+      <li class="list-group-item">Stan licznika: {{ bus.total_odometer }}</li>
+    </ul>
+  </div>
+</div>
+
+{% endblock %}

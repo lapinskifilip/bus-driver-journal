@@ -7,12 +7,13 @@
 <h1 class="text-center">Bus Driver Journal</h1>
 
 {% if workdays_by_author %}
-<table class="table">
+<table class="table text-center">
     <thead>
       <tr>
         <th scope="col">Rozpoczęcie pracy</th>
         <th scope="col">Zakończenie pracy</th>
         <th scope="col">Ilość godzin</th>
+        <th scope="col">Autobus</th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -23,6 +24,7 @@
         <td>{{ workday.work_start|date:"d.m.Y H:i" }}</td>
         <td>{{ workday.work_end|date:"d.m.Y H:i" }}</td>
         <td>{{ workday.work_hours|timedelta:"{hours_total}:{minutes2}" }}</td>
+        <td><a href="{% url 'main:bus_details' workday.bus_id %}">{{ workday.bus.registration_number }} [{{ workday.bus.number }}]</a></td>
         <td>
           <a href="{% url 'main:workdays_details' workday.id %}"><i class="fa-solid fa-circle-info"></i></a>
           <a href="{% url 'main:workday_edit' workday.id %}"><i class="fa-solid fa-pen-to-square"></i></a>

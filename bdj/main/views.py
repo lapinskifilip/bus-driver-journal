@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import WorkDay
+from .models import WorkDay, Bus
 from .forms import WorkDayForm
 
 
@@ -100,5 +100,12 @@ def workday_delete(request, workdays_id):
         return redirect("/workdays/")
     context = {'workday': workday}
     return render(request, "main/workdays/delete_workday.html", context)
+
+
+def bus_details(request, bus_id):
+    bus = Bus.objects.get(id=bus_id)
+    context = {"bus": bus}
+
+    return render(request, "main/bus/details.html", context)
 
     
